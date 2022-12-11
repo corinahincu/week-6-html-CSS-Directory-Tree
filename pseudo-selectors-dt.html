@@ -1,0 +1,138 @@
+<!-- 
+  d. pseudo selectors
+    - Location
+      * :link
+      * :visited
+      * :target
+    
+    -User action 
+      * :hover
+      * :active (touch screen)
+      * :focus (input,text-area,formulare)
+
+    -Resource state
+      * :playing
+      * :paused
+
+    -The input
+      * :checked
+      * :valid
+      * :invalid
+
+    -Tree-structural (tine de hierarchy)
+      * :first-child
+      * :nth-child(n)
+      * :last-child
+
+    -Elements
+      * ::before
+      * ::after
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Directory Tree | CSS Pseudo Selectors</title>
+  <style>
+    body {
+      background-color: #222;
+    }
+
+    .tree {
+      color: white;
+      font-family: Arial;
+      font-size: 64px;
+    }
+
+    .folder {
+      /*NEW*/
+      background-image: url(images/Actions-document-open-icon.png);
+      background-repeat: no-repeat;
+      
+      padding: 24px 0 24px 72px;
+      /*height: 18px;*/
+      line-height: 18px;
+
+      list-style-type: "├"; /* important sa fie in "" */
+
+    }
+    .folder:hover {
+      color: orange;
+    }
+
+    .file {
+      /*NEW*/
+      background-image: url(images/Actions-document-properties-icon.png);
+      background-repeat: no-repeat;
+      
+      padding: 24px 0 24px 72px;
+      /*height: 18px;*/
+      line-height: 18px;
+
+      list-style-type: "├"; /* important sa fie in "" */
+
+    }
+
+    .file:hover {
+      color: rgb(248, 187, 74);
+    }
+
+    .icon:hover{
+      background-color: red;
+    }
+    
+    /*NEW*/
+    .file:last-child {
+      list-style-type: "└";
+    }
+    .folder:last-child {
+      list-style-type: "└";
+    }
+
+    .empty {
+      background-image: url(images/Actions-document-open-folder-icon.png);
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    /*HW1
+      add :hover -effect
+    */
+  </style>
+</head>
+<body>
+  
+  <ul class="tree">
+    <li class="folder">
+      <div class="name">PROJECT [DONE]</div>
+
+      <!-- 
+        nested lists 
+      -->
+
+      <ul class="tree">
+        <li class="file">
+          <div class="name">File 1</div>
+        </li>
+        <li class="file">
+          <div class="name">File 2</div>
+        </li>
+      </ul>
+    </li>
+    <li class="folder">
+      <div class="name">PROJECT [NOW] </div>
+    </li>
+    <!-- 
+      NEW: element -> can have multiple classes 
+      overriding - a scrie deasupra..
+    -->
+    <li class="folder empty">
+      <div class="name">PROJECT [TBD] </div>
+    </li>
+  </ul>
+
+</body>
+</html>
